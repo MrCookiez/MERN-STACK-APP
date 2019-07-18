@@ -3,7 +3,6 @@
  * Everything what returns a promise, we have to make sure,
  * that we use the await in front of it!
  */
-
 const express = require('express');
 const router = express.Router();
 const gravatar = require('gravatar');
