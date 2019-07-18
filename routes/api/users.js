@@ -40,7 +40,7 @@ router.post(
                 errors: errors.array()
             })
         }
-        // Deconstruct request
+        // Destructuring request object
         const {
             name,
             email,
