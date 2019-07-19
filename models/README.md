@@ -1,0 +1,1 @@
+> Location can be replace by Country and City fields, (in the future)
