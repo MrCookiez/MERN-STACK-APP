@@ -71,7 +71,6 @@ router.post('/', [auth, [
         if (location) profileFields.location = location;
         if (bio) profileFields.bio = bio;
         if (status) profileFields.status = status;
-        if (githubusername) profileFields.githubusername = githubusername;
         if (skills) {
             profileFields.skills = skills.split(',').map(skill => skill.trim());
         }
@@ -112,5 +111,43 @@ router.post('/', [auth, [
             res.status(500).send('Server Error');
         }
     });
+
+// @route       GET api/profile
+// @desc        Get all profiles
+// @access      Public
+router.get('/', async (req, res) => {
+    try {
+        const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+        res.json(profiles);
+    } catch (error) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+// @route       GET api/profile/user/:user_id
+// @desc        Get profile user by id
+// @access      Public
+router.get('/user/:user_id', async (req, res) => {
+    try {
+        const profile = await Profile.findOne({
+            user: req.params.user_id
+        }).populate('user', ['name', 'avatar']);
+
+        if (!profile) return res.status(400).json({
+            msg: 'Profile not found'
+        });
+        res.json(profile);
+    } catch (error) {
+        console.error(err.message);
+        if (err.kind == 'ObjectId') {
+            return res.status(400).json({
+                msg: 'Profile not found'
+            });
+        }
+        res.status(500).send('Server Error');
+    }
+});
+
 
 module.exports = router;
