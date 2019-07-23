@@ -1,4 +1,6 @@
 {
     "mongoURI": "mongodb+srv://admin:1miracle@onemiracle-h5k5h.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtSecret": "mysecrettoken"
+    "jwtSecret": "mysecrettoken",
+    "githubClientID": "6efecb9aabf1cbd4ce0b",
+    "githubClientSecret": "1cc818538188a832015add27c411423e2fad0b00"
 }

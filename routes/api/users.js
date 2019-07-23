@@ -1,7 +1,8 @@
 /**
- *  NOTE: Everything what retures a promise we have to make sure use the await in front of it!
+ * NOTE:
+ * Everything what returns a promise, we have to make sure,
+ * that we use the await in front of it!
  */
-
 const express = require('express');
 const router = express.Router();
 const gravatar = require('gravatar');
@@ -67,7 +68,7 @@ router.post(
                 r: 'pg',
                 d: 'mm'
             })
-
+            // Create a new user
             user = new User({
                 name,
                 email,
@@ -83,9 +84,6 @@ router.post(
             const payload = {
                 user: {
                     id: user.id
-                    // ,
-                    // name: user.name,
-                    // password: user.password,
                 }
             };
 
