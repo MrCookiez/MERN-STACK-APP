@@ -1,2 +1,4 @@
 node_modules/
 devconnector-html-theme/
+client/node_modules/
+client/yarn-error.log
