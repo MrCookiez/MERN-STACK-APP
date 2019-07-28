@@ -42,6 +42,7 @@ router.post(
                 errors: errors.array()
             })
         }
+
         // Destructuring request object
         const {
             email,
