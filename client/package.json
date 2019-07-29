@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3033",
   "dependencies": {
     "axios": "^0.19.0",
     "moment": "^2.24.0",
@@ -35,6 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:3033"
+  }
 }
