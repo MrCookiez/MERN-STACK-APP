@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 
-const Register = () => {
+const Register = ({ setAlert, register }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -11,15 +15,15 @@ const Register = () => {
 
     const { name, email, password, password2 } = formData;
 
-    const onChange = async e => setFormData({ ...formData, [e.target.name]: e.target.value });
+    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
 
         if (password !== password2) {
-            console.log('Passwords do not much')
+            setAlert('Passwords do not much', 'danger');
         } else {
-            console.error('Success');
+            register({ name, email, password });
         }
     };
 
@@ -36,7 +40,7 @@ const Register = () => {
                         type="text"
                         placeholder="Name"
                         name="name"
-                        required
+                        // required
                     />
                 </div>
                 <div className="form-group">
@@ -46,7 +50,7 @@ const Register = () => {
                         value={email}
                         type="email"
                         placeholder="Email Address"
-                        required
+                        // required
                     />
                 <small
                     className="form-text"
@@ -62,8 +66,8 @@ const Register = () => {
                     value={password}
                     type="password"
                     placeholder="Password"
-                    minLength="6"
-                    required
+                    // minLength="6"
+                    // required
                 />
                 </div>
                 <div className="form-group">
@@ -73,8 +77,8 @@ const Register = () => {
                     value={password2}
                     type="password"
                     placeholder="Confirm Password"
-                    minLength="6"
-                    required
+                    // minLength="6"
+                    // required
                 />
                 </div>
                 <input type="submit" className="btn btn-primary" value="Register" />
@@ -87,4 +91,9 @@ const Register = () => {
     );
 };
 
-export default Register;
+Register.propTypes = {
+    setAlert: PropTypes.func.isRequired,
+    register: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setAlert, register })(Register);
