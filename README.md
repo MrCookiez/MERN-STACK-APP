@@ -15,7 +15,7 @@ To install the project you need to:
 2. Enter the folder and run yarn
 3. Run `yarn server` for start the server (backend)
 4. Run `yarn start` to see the application on port 3000 (frontend)
-5. Run `yarn dev` to run both `client` & `server` side
+5. OR Run `yarn dev` to run both `client` & `server` side
 
 ## Original source
 
