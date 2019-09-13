@@ -1,6 +1,6 @@
 # THE SOCIAL NETWORK
 
-This project will be connected is a good practice to learn the MERN stack
+This project is a good practice to learn the MERN stack
 
 * MongoDB
 * ExpressJS
